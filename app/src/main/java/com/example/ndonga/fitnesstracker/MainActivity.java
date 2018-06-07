@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-//import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, fitTracks);
+        TrackArrayAdapter adapter = new TrackArrayAdapter(this, android.R.layout.simple_list_item_1, fitTracks);
         mMainListView.setAdapter(adapter);
         mMainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
