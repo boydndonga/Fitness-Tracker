@@ -16,7 +16,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemClickListener {
     @BindView(R.id.trackFitnessInput) EditText mTrackFitnessInput;
     @BindView(R.id.trackFitnessButton) Button mTrackFitnessButton;
     @BindView(R.id.homeTextView) TextView mHomeTextView;
@@ -31,25 +31,26 @@ public class MainActivity extends AppCompatActivity {
 
         TrackArrayAdapter adapter = new TrackArrayAdapter(this, android.R.layout.simple_list_item_1, fitTracks);
         mMainListView.setAdapter(adapter);
-        mMainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String track = ((TextView)view).getText().toString();
-                Toast.makeText(MainActivity.this, track, Toast.LENGTH_LONG).show();
-            }
-        });
+        mMainListView.setOnItemClickListener(this);
 
         Typeface awesomeFont = Typeface.createFromAsset(getAssets(), "fonts/KaushanScript-Regular.otf");
         mHomeTextView.setTypeface(awesomeFont);
 
-        mTrackFitnessButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                String track = mTrackFitnessInput.getText().toString();
-                Intent intent = new Intent(MainActivity.this, FitnessActivity.class);
-                intent.putExtra("track", track);
-                startActivity(intent);
-            }
-        });
+        mTrackFitnessButton.setOnClickListener(this);
+    }
+    @Override
+    public void onClick(View v){
+        if( v == mTrackFitnessButton) {
+            String track = mTrackFitnessInput.getText().toString();
+            Intent intent = new Intent(MainActivity.this, FitnessActivity.class);
+            intent.putExtra("track", track);
+            startActivity(intent);
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        String track = ((TextView)view).getText().toString();
+        Toast.makeText(MainActivity.this, track, Toast.LENGTH_LONG).show();
     }
 }
