@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.homeTextView) TextView mHomeTextView;
     @BindView(R.id.mainListView) ListView mMainListView;
      String[] fitTracks = new String[] {"Physical", "Educational", "Social", "Mentorship"};
+    GridView gridView;
+    String[] letters = new String[] {
+            "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+            "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mHomeTextView.setTypeface(awesomeFont);
 
         mTrackFitnessButton.setOnClickListener(this);
+
+        gridView = (GridView) findViewById(R.id.baseGridView);
+        gridView.setAdapter(new AlphabetAdapter(this, letters));
     }
     @Override
     public void onClick(View v){

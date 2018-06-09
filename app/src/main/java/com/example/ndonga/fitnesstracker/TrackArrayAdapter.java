@@ -17,7 +17,7 @@ public class TrackArrayAdapter extends ArrayAdapter {
 
     @Override
     public Object getItem(int position) {
-        String fitnessTrack= mFitTrack[position]
+        String fitnessTrack= mFitTrack[position];
         return String.format("%s \nServes great: %s", fitnessTrack);
     }
 
