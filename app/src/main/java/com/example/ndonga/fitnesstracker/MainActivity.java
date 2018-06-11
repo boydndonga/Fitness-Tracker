@@ -1,5 +1,6 @@
 package com.example.ndonga.fitnesstracker;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -45,6 +46,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         gridView = (GridView) findViewById(R.id.baseGridView);
         gridView.setAdapter(new AlphabetAdapter(this, letters));
+
+        FragmentManager fm = getFragmentManager();
+        MoodDialogFragment moodDialogFragment = new MoodDialogFragment ();
+        moodDialogFragment.show(fm, "Sample Fragment");
+
     }
     @Override
     public void onClick(View v){
