@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         gridView.setAdapter(new AlphabetAdapter(this, letters));
 
         FragmentManager fm = getFragmentManager();
-        MoodDialogFragment moodDialogFragment = new MoodDialogFragment ();
-        moodDialogFragment.show(fm, "Sample Fragment");
+//        MoodDialogFragment moodDialogFragment = new MoodDialogFragment ();
+//        moodDialogFragment.show(fm, "Sample Fragment");
 
     }
     @Override
