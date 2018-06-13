@@ -17,7 +17,7 @@ public class ImageActivity extends AppCompatActivity{
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(),2);
         recyclerView.setLayoutManager(layoutManager);
         ArrayList<CreateList> createLists = prepareData();
-        MyAdapter adapter = new MyAdapter(getApplicationContext(), createLists);
+        ImageArrayAdapter adapter = new ImageArrayAdapter(getApplicationContext(), createLists);
         recyclerView.setAdapter(adapter);
     }
     private final String image_titles[] = {

@@ -1,9 +1,5 @@
 package com.example.ndonga.fitnesstracker;
 
-import android.support.v7.widget.RecyclerView;
-
-import java.util.ArrayList;
-
 public class ImageArrayAdapter extends RecyclerView.Adapter<ImageArrayAdapter.ViewHolder> {
     private ArrayList<CreateList> galleryList;
     private Context context;
@@ -20,7 +16,7 @@ public class ImageArrayAdapter extends RecyclerView.Adapter<ImageArrayAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(MyAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(ImageArrayAdapter.ViewHolder viewHolder, int i) {
         viewHolder.title.setText(galleryList.get(i).getImage_title());
         viewHolder.img.setScaleType(ImageView.ScaleType.CENTER_CROP);
         viewHolder.img.setImageResource((galleryList.get(i).getImage_ID()));
